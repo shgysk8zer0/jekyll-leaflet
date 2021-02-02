@@ -1,70 +1,72 @@
-{% case include.place['@type'] %}
-	{% when 'Restaurant' or 'FoodEstablishment' %}
-		{% include leaflet/map-icon.html icon='restaurant' %}
-	{% when 'FastFoodRestaurant' %}
-		{% include leaflet/map-icon.html icon='food' %}
-	{% when 'BarOrPub' %}
-		{% include leaflet/map-icon.html icon='beer' %}
-	{% when 'CafeOrCoffeeShop' %}
-		{% include leaflet/map-icon.html icon='cafe' %}
-	{% when 'Store' or 'GroceryStore' or 'WholesaleStore' %}
-		{% include leaflet/map-icon.html icon='shopping' %}
-	{% when 'Campground' %}
-		{% include leaflet/map-icon.html icon='tent' %}
-	{% when 'Florist' %}
-		{% include leaflet/map-icon.html icon='florist' %}
-	{% when 'LodgingBusiness' or 'Motel' or 'Hotel' or 'Resort' %}
-		{% include leaflet/map-icon.html icon='hotel' %}
-	{% when 'GasStation' %}
-		{% include leaflet/map-icon.html icon='gas' %}
-	{% when 'Museum' %}
-		{% include leaflet/map-icon.html icon='museum' %}
-	{% when 'MovieTheater' %}
-		{% include leaflet/map-icon.html icon='movie-roll' %}
-	{% when 'AutoRepair' %}
-		{% include leaflet/map-icon.html icon='engine-outline' %}
-	{% when 'BowlingAlley' %}
-		{% include leaflet/map-icon.html icon='bowling' %}
-	{% when 'FinancialService' or 'BankOrCreditUnion' or 'AutomatedTeller' %}
-		{% include leaflet/map-icon.html icon='atm' %}
-	{% when 'Hospital' %}
-		{% include leaflet/map-icon.html icon='hospital' %}
-	{% when 'FireStation' %}
-		{% include leaflet/map-icon.html icon='fire-truck' %}
-	{% when 'EmergencyService' %}
-		{% include leaflet/map-icon.html icon='ambulance' %}
-	{% when 'PoliceStation' %}
-		{% include leaflet/map-icon.html icon='police' %}
-	{% when 'Pharmacy' %}
-		{% include leaflet/map-icon.html icon='pharmacy' %}
-	{% when 'Library' %}
-		{% include leaflet/map-icon.html icon='library' %}
-	{% when 'PostOffice' %}
-		{% include leaflet/map-icon.html icon='mailbox' %}
-	{% when 'BusStop' %}
-		{% include leaflet/map-icon.html icon='bus' %}
-	{% when 'Cemetery' %}
-		{% include leaflet/map-icon.html icon='grave-stone' %}
-	{% when 'Church' or 'PlaceOfWorship' %}
-		{% include leaflet/map-icon.html icon='church' %}
-	{% when 'ParkingFacility' %}
-		{% include leaflet/map-icon.html icon='parking' %}
-	{% when 'PublicToilet' %}
-		{% include leaflet/map-icon.html icon='outhouse' %}
-	{% when 'Park' %}
-		{% include leaflet/map-icon.html icon='tree' %}
-	{% when 'City' or 'AdministrativeArea' %}
-		{% include leaflet/map-icon.html icon='city' %}
-	{% when 'RadioStation' %}
-		{% include leaflet/map-icon.html icon='radio-tower' %}
-	{% when 'EventVenue' %}
-		{% include leaflet/map-icon.html icon='event' %}
-	{% when 'EducationalOrganization' or 'School' or 'Preschool' or 'ElementarySchool' or 'MidddleSchool' or 'HighSchool' or 'CollegeOrUniversity' %}
-		{% include leaflet/map-icon.html icon='school' %}
-	{% when 'TouristAttraction' or 'LandmarksOrHistoricalBuildings' %}
-		{% include leaflet/map-icon.html icon='pin' %}
-	{% when 'Mountain' %}
-		{% include leaflet/map-icon.html icon='summit' %}
+{% case include.place["@type"] %}
+	{% when "Restaurant" or "FoodEstablishment" %}
+		{% include leaflet/map-icon.html icon="restaurant" %}
+	{% when "FastFoodRestaurant" %}
+		{% include leaflet/map-icon.html icon="food" %}
+	{% when "BarOrPub" %}
+		{% include leaflet/map-icon.html icon="beer" %}
+	{% when "CafeOrCoffeeShop" %}
+		{% include leaflet/map-icon.html icon="cafe" %}
+	{% when "Store" or "GroceryStore" or "WholesaleStore" %}
+		{% include leaflet/map-icon.html icon="shopping" %}
+	{% when "Campground" %}
+		{% include leaflet/map-icon.html icon="tent" %}
+	{% when "HardwareStore" %}
+		{% include leaflet/map-icon.html icon="hammer" %}
+	{% when "Florist" %}
+		{% include leaflet/map-icon.html icon="florist" %}
+	{% when "LodgingBusiness" or "Motel" or "Hotel" or "Resort" %}
+		{% include leaflet/map-icon.html icon="hotel" %}
+	{% when "GasStation" %}
+		{% include leaflet/map-icon.html icon="gas" %}
+	{% when "Museum" %}
+		{% include leaflet/map-icon.html icon="museum" %}
+	{% when "MovieTheater" %}
+		{% include leaflet/map-icon.html icon="movie-roll" %}
+	{% when "AutoRepair" %}
+		{% include leaflet/map-icon.html icon="engine-outline" %}
+	{% when "BowlingAlley" %}
+		{% include leaflet/map-icon.html icon="bowling" %}
+	{% when "FinancialService" or "BankOrCreditUnion" or "AutomatedTeller" %}
+		{% include leaflet/map-icon.html icon="atm" %}
+	{% when "Hospital" %}
+		{% include leaflet/map-icon.html icon="hospital" %}
+	{% when "FireStation" %}
+		{% include leaflet/map-icon.html icon="fire-truck" %}
+	{% when "EmergencyService" %}
+		{% include leaflet/map-icon.html icon="ambulance" %}
+	{% when "PoliceStation" %}
+		{% include leaflet/map-icon.html icon="police" %}
+	{% when "Pharmacy" %}
+		{% include leaflet/map-icon.html icon="pharmacy" %}
+	{% when "Library" %}
+		{% include leaflet/map-icon.html icon="library" %}
+	{% when "PostOffice" %}
+		{% include leaflet/map-icon.html icon="mailbox" %}
+	{% when "BusStop" %}
+		{% include leaflet/map-icon.html icon="bus" %}
+	{% when "Cemetery" %}
+		{% include leaflet/map-icon.html icon="grave-stone" %}
+	{% when "Church" or "PlaceOfWorship" %}
+		{% include leaflet/map-icon.html icon="church" %}
+	{% when "ParkingFacility" %}
+		{% include leaflet/map-icon.html icon="parking" %}
+	{% when "PublicToilet" %}
+		{% include leaflet/map-icon.html icon="outhouse" %}
+	{% when "Park" %}
+		{% include leaflet/map-icon.html icon="tree" %}
+	{% when "City" or "AdministrativeArea" %}
+		{% include leaflet/map-icon.html icon="city" %}
+	{% when "RadioStation" %}
+		{% include leaflet/map-icon.html icon="radio-tower" %}
+	{% when "EventVenue" %}
+		{% include leaflet/map-icon.html icon="event" %}
+	{% when "EducationalOrganization" or "School" or "Preschool" or "ElementarySchool" or "MidddleSchool" or "HighSchool" or "CollegeOrUniversity" %}
+		{% include leaflet/map-icon.html icon="school" %}
+	{% when "TouristAttraction" or "LandmarksOrHistoricalBuildings" %}
+		{% include leaflet/map-icon.html icon="pin" %}
+	{% when "Mountain" %}
+		{% include leaflet/map-icon.html icon="summit" %}
 	{% else %}
-		{% include leaflet/map-icon.html icon='business' %}
+		{% include leaflet/map-icon.html icon="business" %}
 {% endcase %}
