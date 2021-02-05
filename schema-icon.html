@@ -14,7 +14,7 @@
 	{% when "HardwareStore" %}
 		{% include leaflet/map-icon.html icon="hammer" %}
 	{% when "Florist" %}
-		{% include leaflet/map-icon.html icon="florist" %}
+		{% include leaflet/map-icon.html icon="flower-tulip" %}
 	{% when "LodgingBusiness" or "Motel" or "Hotel" or "Resort" %}
 		{% include leaflet/map-icon.html icon="hotel" %}
 	{% when "GasStation" %}
@@ -39,6 +39,10 @@
 		{% include leaflet/map-icon.html icon="police" %}
 	{% when "Pharmacy" %}
 		{% include leaflet/map-icon.html icon="pharmacy" %}
+	{% when 'Dentist' %}
+		{% include leaflet/map-icon.html icon="tooth" %}
+	{% when 'VeterinaryCare' %}
+		{% include leaflet/map-icon.html icon="paw" %}
 	{% when "Library" %}
 		{% include leaflet/map-icon.html icon="library" %}
 	{% when "PostOffice" %}
