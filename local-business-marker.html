@@ -1,4 +1,4 @@
-<leaflet-marker id="{{ include.business.identifier }}" class="custom-element if-defined content-visibility-hidden" data-marker-type="{{ include.type | default: 'unknown' }}" latitude="{{ include.business.geo.latitude }}" longitude="{{ include.business.geo.longitude }}" title="{{ include.business.name | escape }}" itemtype="https://schema.org/{{ include.business['@type'] | default: 'LocalBusiness' }}" minzoom="{{ include.minZoom }}" maxzoom="{{ include.maxZoom }}" hidden="">
+<leaflet-marker id="{{ include.business.identifier }}" class="custom-element if-defined content-visibility-hidden" data-marker-type="{{ include.type | default: 'unknown' }}" latitude="{{ include.business.geo.latitude | default: include.business.location.geo.latitude }}" longitude="{{ include.business.geo.longitude | default: include.business.location.geo.longitude }}" title="{{ include.business.name | escape }}" itemtype="https://schema.org/{{ include.business['@type'] | default: 'LocalBusiness' }}" minzoom="{{ include.minZoom }}" maxzoom="{{ include.maxZoom }}" hidden="">
 	{% if include.ld == true %}<script type="application/ld+json">{{ include.business | jsonify }}</script>{% endif %}
 	{% assign icon=include.business.additionalProperty | find: 'name', 'icon' %}
 	{% assign logo=include.business.logo | find: 'encodingFormat', 'image/svg+xml' %}
@@ -25,7 +25,11 @@
 		{% endfor %}{% endif %}
 		<h3 itemprop="name">{{ include.business.name }}</h3>
 		{% if include.business.description %}<blockquote itemprop="description">{{ include.business.description }}</blockquote>{% endif %}
-		{% if include.business.address %}{% include common/address.html address=include.business.address %}{% endif %}
+		{% if include.business.address %}
+			{% include common/address.html address=include.business.address %}
+		{% elsif include.business.location.address %}
+			{% include common/address.html address=include.business.location.address %}
+		{% endif %}
 		{% if include.business.telephone %}<div><a href="tel:+{{ include.business.telephone | remove: '+1-' }}" itemprop="telephone" content="+1-{{ include.business.telephone | remove: '+1-' }}">
 			<span>{{ include.business.telephone | remove: '+1-' }}</span>
 			{% include common/icon.html icon="call-start" width="20" height="20" fill="currentColor" %}
@@ -58,10 +62,14 @@
 				{% endfor %}
 			</div>
 		{% endif %}
-		{% if include.business.openingHoursSpecification %}{% include common/openingHoursSpecification.html hours=include.business.openingHoursSpecification %}{% endif %}
+		{% if include.business.openingHoursSpecification %}
+			{% include common/openingHoursSpecification.html hours=include.business.openingHoursSpecification %}
+		{% elsif include.business.location.openingHoursSpecification %}
+			{% include common/openingHoursSpecification.html hours=include.business.location.openingHoursSpecification %}
+		{% endif %}
 		<br />
 		<div>
-			<button type="button" is="share-button" text="Check out &quot;{{ business.name | escape }}&quot; on {{ site.title | escape }}" url="/#{{ business.identifier }}" hidden="">
+			<button type="button" is="share-button" sharetitle="{{ include.business.name | escape }} | {{ site.title | escape }}" text="Check out &quot;{{ include.business.name | escape }}&quot; on {{ site.title | escape }}" url="{{ page.url }}#{{ include.business.identifier }}" hidden="">
 				<span>Share</span>
 				<svg height="18" width="18" fill="currentColor" role="img" aria-hidden="true">
 					<use xlink:href="/img/icons.svg#public-share"></use>
