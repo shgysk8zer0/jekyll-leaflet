@@ -1,4 +1,6 @@
 {% case include.place["@type"] %}
+	{% when "Place" %}
+		{% include leaflet/map-icon.html icon="map-marker" %}
 	{% when "Restaurant" or "FoodEstablishment" %}
 		{% include leaflet/map-icon.html icon="restaurant" %}
 	{% when "FastFoodRestaurant" %}
