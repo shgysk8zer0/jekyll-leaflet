@@ -11,8 +11,8 @@
 	{% endif %}
 	<template slot="popup">
 		<div itemprop="geo" itemtype="https://schema.org/GeoCoordinates" itemscope="" hidden="">
-			<meta itemprop="latitude" content="{{ include.business.geo.latitude }}" />
-			<meta itemprop="longitude" content="{{ include.business.geo.longitude }}" />
+			<meta itemprop="latitude" content="{{ include.business.geo.latitude | default: include.business.location.latitude }}" />
+			<meta itemprop="longitude" content="{{ include.business.geo.longitude | default: include.business.location.longitude }}" />
 		</div>
 		<meta itemprop="priceRange" content="{{ include.business.priceRange }}" />
 		{% if include.business.image %}{% for img in include.business.image %}
